@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+*{
+	margin:0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration: none;
+}
+
+.titleBox{
+	width: 900px;
+	height: 100px;
+	text-align: center;
+	margin:100px auto;
+	line-height: 100px;
+	font-size: 32px;
+}
+
+.mileBox{
+	width: 900px;
+	height: 800px;
+	margin: 50px auto;
+	border: 1px solid black;
+	font-size: 23px;
+}
+
+.mileBox ul{
+	padding:10px;
+	margin: 100px 0 30px 100px;
+}
+
+.mileBox ul li{
+	margin-bottom: 40px;
+}
+
+.mileSpan{
+	margin-top:10px;
+	display: inline-block;
+}
