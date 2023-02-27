@@ -16,7 +16,7 @@
 			<ul>
 				<li>
 					<span><h3>1. 크롤링</h3></span>
-					<span class="mileSpan">-> <a href="#">크롤링사이트 바로가기</a></span>				
+					<span class="mileSpan">-> <a href="crawling">크롤링사이트 바로가기</a></span>				
 				</li>
 				<li>2</li>
 				<li>3</li>
