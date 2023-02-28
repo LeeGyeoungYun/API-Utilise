@@ -2,6 +2,7 @@ package net.daum.controller;
 
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,12 @@ public class crawController {
 	public String crawling() {
 		
 		return "crawPage";
+	}
+	
+	@GetMapping(value="/weatherCrawling")
+	public String weatherCrawling() {
+		
+		return "craw_weather";
 	}
 	
 	@PostMapping(value="/craw/craw_select.ajax")
@@ -58,6 +65,39 @@ public class crawController {
 	
 		return map;
 	}
+	
+	
+	@PostMapping(value="/craw/craw_weater_select")
+	@ResponseBody
+	public Map<Integer,Object> craw_weather_select(String region,HttpServletRequest request) throws IOException {
+		
+		String url ="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query="+region+"+날씨";
+		Document doc = Jsoup.connect(url).get(); //해당 페이지의 document를 다 가져오기
+		
+		Elements ele = doc.select(".cs_weather_new .weekly_forecast_area .week_item .day_data"); //해당부분 요소를 가져옴.
+		int size = ele.size();
+		
+		String day = ele.select(".cell_date .day").text();
+		String date = ele.select(".cell_date .date").text();
+		String blind = ele.select("i .blind").text();
+		String lowest = ele.select(".lowest").text();
+		String highest = ele.select(".highest").text();
+		
+		List<String> weather = new ArrayList<>();
+		Map<Integer,Object> map = new HashMap<>();
+		
+		for(int i=0;i<size;i++) {
+			weather.add(day.split(" ")[i]+","+date.split(" ")[i]+
+					",오전:"+blind.split(" ")[i*2]+" 오후:"+blind.split(" ")[i*2+1]+
+					","+lowest.split(" ")[i]+","+highest.split(" ")[i]);
+			map.put(i,weather.get(i));
+		}
+		
+		System.out.println(map);
+		return map;
+	}
+	
+	
 	
 	
 }

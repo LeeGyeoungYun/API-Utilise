@@ -15,10 +15,13 @@
 			
 			<ul>
 				<li>
-					<span><h3>1. 크롤링</h3></span>
+					<span><h3>1. op.gg모스트 크롤링</h3></span>
 					<span class="mileSpan">-> <a href="crawling">크롤링사이트 바로가기</a></span>				
 				</li>
-				<li>2</li>
+				<li>
+					<span><h3>2. 네이버 지역 날씨 크롤링</h3></span>
+					<span class="mileSpan">-> <a href="weatherCrawling">크롤링사이트 바로가기</a></span>
+				</li>
 				<li>3</li>
 				<li>4</li>
 			</ul>
