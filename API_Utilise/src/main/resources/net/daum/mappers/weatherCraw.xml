@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 매퍼 DTD설정 -->
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="WC">
+
+	<insert id="insertWeaterData" parameterType="wc">
+		insert into weatherCraw (wc_no,wc_region,wc_day,wc_date,wc_weather,
+		wc_lowest,wc_highest,wc_creation_date,wc_modify_date) 
+		values (wc_no.nextval,#{wc_region},#{wc_day},#{wc_date},#{wc_weather},#{wc_lowest}
+		,#{wc_highest},sysdate,sysdate)
+	</insert>
+
+</mapper>
