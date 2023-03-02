@@ -6,9 +6,14 @@
 	text-decoration: none;
 }
 
+.crawContainer{
+	min-height: 1500px;
+}
+
 .lolCrawTest{
+	margin-top:300px;
 	width: 900px;
-	height: 900px;
+	height: 1200px;
 	position: absolute;
 	top:50%;
 	left: 50%;
@@ -42,7 +47,151 @@
 .content_craw{
 	margin:50px auto;
 	width: 760px;
-	height: 400px;
+	height: 830px;
 	border: 2px solid black;
 	padding: 30px;
+}
+
+.week_item{
+	width:530px;
+	height:70px;
+	margin: 10px auto;
+	border-radius: 5px;
+	text-align: center;
+	border: 1px solid #d1d7de;
+}
+
+.day_date{
+	width:100%;
+	display: flex;
+	  
+}
+
+.cell_date{
+	width:21%;
+}
+
+.date_inner{
+	border-right: 1px solid #d1d7de;
+    display: inline-block;
+    margin-top: 9px;
+    padding: 0 30px;
+}
+
+.day{
+	display: inline-block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.6rem;
+    letter-spacing: -0.3px;
+    color: #303030;
+}
+
+.date{
+	display: block;
+    font-size: 1.3rem;
+    line-height: 2.2rem;
+    letter-spacing: -0.3px;
+    color: #303030;
+}
+
+.cell_weather{
+	padding-left: 2px;
+    font-size: 0;
+    line-height: 0;
+    white-space: nowrap;
+    padding: 20px 0px;
+    width: 51%;
+}
+
+.weather_inner{
+	display: inline-block;
+    min-width: 66px;
+    text-align: right;
+}
+
+.weather_left{
+	display: inline-block;
+    text-align: center;
+    margin: 4px 1px 0 0;
+}
+
+.cell_weather .weather_inner:first-child{
+	margin-right: 5px;
+}
+
+.time{
+	display: inline-block;
+    font-size: 1.8rem;
+    line-height: 2.0rem;
+    letter-spacing: -0.8px;
+    color: #8f8f8f;
+}
+
+.sunny{
+	background-image: url("https://ssl.pstatic.net/sstatic/keypage/outside/scui/weather_new_new/img/weather_svg_v2/icon_flat_wt1.svg");
+}
+
+.cloudy{
+	background-image: url("https://ssl.pstatic.net/sstatic/keypage/outside/scui/weather_new_new/img/weather_svg_v2/icon_flat_wt7.svg");
+}
+
+.cloud{
+	background-image: url("https://ssl.pstatic.net/sstatic/keypage/outside/scui/weather_new_new/img/weather_svg_v2/icon_flat_wt5.svg");
+}
+
+
+
+.icon{
+	display: inline-block;
+    vertical-align: top;
+    width: 38px;
+    height: 38px;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    -webkit-background-size: 38px 38px;
+}
+
+.cell_temperature{
+	width: 27%;
+}
+
+.temperature_inner{
+	display: block;
+    font-size: 0;
+    line-height: 0;
+    margin-top: 1px;
+    padding:20px 0;
+}
+
+.lowest{
+	display: inline-block;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    letter-spacing: -0.26px;
+    color: #2a74f8;
+    vertical-align: top;
+}
+
+.bar{
+	display: inline-block;
+    font-size: 1.3rem;
+    line-height: 1.1rem;
+    color: #dbdbdb;
+    margin: 3px 1px 0 0;
+    overflow: unset;
+    width: auto;
+    height: auto;
+    border: 0;
+    vertical-align: top;
+}
+
+.highest{
+	display: inline-block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.1rem;
+    letter-spacing: -0.3px;
+    color: #dc0100;
+    vertical-align: top;
 }

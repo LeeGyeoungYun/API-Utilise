@@ -88,12 +88,12 @@ public class crawController {
 		
 		for(int i=0;i<size;i++) {
 			weather.add(day.split(" ")[i]+","+date.split(" ")[i]+
-					",오전:"+blind.split(" ")[i*2]+" 오후:"+blind.split(" ")[i*2+1]+
+					","+blind.split(" ")[i*2]+" "+blind.split(" ")[i*2+1]+
 					","+lowest.split(" ")[i]+","+highest.split(" ")[i]);
 			map.put(i,weather.get(i));
 		}
 		
-		System.out.println(map);
+		//System.out.println(map);
 		return map;
 	}
 	
