@@ -1,9 +1,8 @@
 
 
-var content_craw = document.querySelector(".content_craw");
-var now = new Date();
-var week = new Array('일','월','화','수','목','금','토');	
-			
+var content_craw = document.querySelector(".content_craw ul");
+
+
 let submit = document.querySelector(".submit");
 submit.addEventListener("click",function(){
 
@@ -11,7 +10,7 @@ submit.addEventListener("click",function(){
 	let region = document.querySelector(".craw").value;
 	
 	$.ajax({
-	
+		
 		url:"/API_Utilise/craw/craw_weater_select",
 		type:"post",
 		data:{"region":region},
@@ -37,7 +36,6 @@ submit.addEventListener("click",function(){
 
 
 function showChart(data,item){
-
 	let content = document.createElement('li');
 	content.className='week_item';
 	
@@ -98,7 +96,12 @@ function showChart(data,item){
 							</div>					
 						</div>
 	`;			
-	content_craw.appendChild(content);
-	
-	
+	content_craw.appendChild(content);	
 }
+
+
+var reset = document.querySelector(".delete");
+reset.addEventListener("click",function ab(){ //초기화
+	
+	content_craw.innerHTML = "";
+});

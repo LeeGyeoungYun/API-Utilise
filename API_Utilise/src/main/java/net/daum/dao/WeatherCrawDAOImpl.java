@@ -16,6 +16,11 @@ public class WeatherCrawDAOImpl implements WeatherCrawDAO {
 	public void insertWeatherData(WeatherCrawVO wc) {
 		this.sqlSession.insert("insertWeaterData",wc);	
 	}
+
+	@Override
+	public int confirmWeatherData(WeatherCrawVO wc) {		
+		return this.sqlSession.selectOne("confirmWeatherData",wc);
+	}
 	
 	
 

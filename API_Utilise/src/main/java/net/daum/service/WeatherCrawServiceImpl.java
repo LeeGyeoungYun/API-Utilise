@@ -17,6 +17,11 @@ public class WeatherCrawServiceImpl implements WeatherCrawService {
 	public void insertWeatherData(WeatherCrawVO wc) {
 		this.weatherCrawDao.insertWeatherData(wc);
 	}
+
+	@Override
+	public int confirmWeatherData(WeatherCrawVO wc) {	
+		return this.weatherCrawDao.confirmWeatherData(wc);
+	}
 	
 
 }

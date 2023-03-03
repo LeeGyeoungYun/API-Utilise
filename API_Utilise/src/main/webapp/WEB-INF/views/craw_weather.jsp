@@ -17,6 +17,7 @@
 
 				<input type="text" class="craw" placeholder="지역이름을 적어주세요.">
 				<button type="button" class="submit">입력</button>
+				<button type="button" class="delete">초기화</button>
 			</div>
 
 			<div class="content_craw">

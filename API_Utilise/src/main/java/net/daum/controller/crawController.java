@@ -4,6 +4,7 @@ package net.daum.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -92,6 +93,10 @@ public class crawController {
 		List<String> weather = new ArrayList<>();
 		Map<Integer,Object> map = new HashMap<>();
 		
+		String[] dayOfWeekArray = {"일","월","화","수","목","금","토"};
+		Calendar cal = Calendar.getInstance();
+		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		
 		for(int i=0;i<size;i++) {
 			weather.add(day.split(" ")[i]+","+date.split(" ")[i]+
 					","+blind.split(" ")[i*2]+" "+blind.split(" ")[i*2+1]+
@@ -99,19 +104,36 @@ public class crawController {
 			map.put(i,weather.get(i));
 			
 			//해당 요일에 오늘이랑 내일이면 요일로 바꾼후 db에 저장
-			wc.setWc_region(region);
-			wc.setWc_day(wc_day);
-			wc.setWc_date(wc_date);
-			wc.setWc_weather(wc_weather);
-			wc.setWc_lowest(wc_lowest);
-			wc.setWc_highest();
-		}
+			
+			wc.setWc_region(region); //지역 VO 에 저장 
+			wc.setWc_date(date.split(" ")[i]); // 날짜 저장
+			int count = this.weatherCrawService.confirmWeatherData(wc); //혹시라도 전에 저장된적이 있다면 카운트가 1이상이 나오고 아니면 0
+
+			if (count > 0) { // 1이상인 경우엔 DB에 저장하지않고 패스
+				System.out.println("이미 저장된 값이 존재합니다");
+				continue;
+			} else { // 만약 저장되지 않은 데이터라면 저장
+				
+				if (day.split(" ")[i].equals("오늘")) {
+					wc.setWc_day(dayOfWeekArray[dayOfWeek - 1]);
+				} else if (day.split(" ")[i].equals("내일")) {
+					wc.setWc_day(dayOfWeekArray[dayOfWeek]);
+				} else {
+					wc.setWc_day(day.split(" ")[i]);
+				}
+				wc.setWc_weather("오전:" + blind.split(" ")[i * 2] + "  오후:" + blind.split(" ")[i * 2 + 1]);
+				wc.setWc_lowest(lowest.split(" ")[i]);
+				wc.setWc_highest(highest.split(" ")[i]);
+				this.weatherCrawService.insertWeatherData(wc); // 정보 저장
+			}
+		}// for end
 		
 		
 		
 		//System.out.println(map);
 		return map;
-	}
+		
+	}//craw_weather_select() end
 	
 	
 	

@@ -5,7 +5,7 @@ create table weatherCraw(
 	wc_region varchar2(40) not null, -- 지역
 	wc_day varchar2(20) not null, -- 요일
 	wc_date varchar2(20) not null, -- 날짜
-	wc_weather varchar2(20) not null, -- 날씨
+	wc_weather varchar2(40) not null, -- 날씨
 	wc_lowest varchar2(20) not null, -- 최저기온
 	wc_highest varchar2(20) not null, --최고기온
 	wc_creation_date date not null, -- 생성일
@@ -18,5 +18,8 @@ start with 1
 increment by 1
 nocache;
 
-select * from WEATHERCRAW;
+select * from WEATHERCRAW order by wc_no desc;
 drop table WEATHERCRAW;
+drop sequence wc_seq;
+
+select count(*) from weatherCraw where wc_region = '부천' and wc_date = '3.03.';
