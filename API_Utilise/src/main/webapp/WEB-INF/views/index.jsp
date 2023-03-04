@@ -22,7 +22,10 @@
 					<span><h3>2. 네이버 지역 날씨 크롤링</h3></span>
 					<span class="mileSpan">-> <a href="weatherCrawling">크롤링사이트 바로가기</a></span>
 				</li>
-				<li>3</li>
+				<li>
+					<span><h3>3. 달력 위젯 사용</h3></span>
+					<span class="mileSpan">-> <a href="calendarWidget">달력위젯 사용 바로가기</a></span>
+				</li>
 				<li>4</li>
 			</ul>
 		
