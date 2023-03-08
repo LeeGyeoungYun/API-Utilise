@@ -24,7 +24,7 @@ import net.daum.service.WeatherCrawService;
 import net.daum.vo.WeatherCrawVO;
 
 @Controller
-public class crawController {
+public class CrawController {
 	
 	@Autowired
 	private WeatherCrawService weatherCrawService;
