@@ -26,7 +26,16 @@
 					<span><h3>3. 달력 위젯 사용</h3></span>
 					<span class="mileSpan">-> <a href="calendarWidget">달력위젯 사용 바로가기</a></span>
 				</li>
-				<li>4</li>
+				<li>
+					<span><h3>4. REST Controller Test</h3></span>
+					<span class="mileSpan">-> <a href="test">RESTController 테스트 바로가기</a></span>
+				</li>
+				<li>
+					5
+				</li>
+				<li>
+					6
+				</li>
 			</ul>
 		
 		</div>
