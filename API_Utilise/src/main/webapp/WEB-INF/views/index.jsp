@@ -35,7 +35,8 @@
 					<span class="mileSpan">-> <a href="busAPI_test">버스 API활용 테스트 바로가기</a></span>
 				</li>
 				<li>
-					6
+					<span><h3>6. JSON 테스트</h3></span>
+					<span class="mileSpan">-> <a href="json_test">JSON 테스트 바로가기</a></span>
 				</li>
 			</ul>
 		
