@@ -27,11 +27,12 @@
 					<span class="mileSpan">-> <a href="calendarWidget">달력위젯 사용 바로가기</a></span>
 				</li>
 				<li>
-					<span><h3>4. REST Controller Test</h3></span>
-					<span class="mileSpan">-> <a href="test">RESTController 테스트 바로가기</a></span>
+					<span><h3>4. 미세먼지 API활용 테스트</h3></span>
+					<span class="mileSpan">-> <a href="fine_dustAPI_Test">미세먼지 API활용 테스트 바로가기</a></span>
 				</li>
 				<li>
-					5
+					<span><h3>5. 버스 API활용 테스트</h3></span>
+					<span class="mileSpan">-> <a href="busAPI_test">버스 API활용 테스트 바로가기</a></span>
 				</li>
 				<li>
 					6
