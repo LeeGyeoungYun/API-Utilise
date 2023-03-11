@@ -9,7 +9,6 @@ import java.net.URLEncoder;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -84,26 +83,23 @@ public class RestControllerTest {
 	}
 	
 
-	@GetMapping("/json_test")
+	@GetMapping("json_test")
 	public JSONObject json_test() {
 		
 		JSONObject json = new JSONObject();
 		JSONArray array = new JSONArray();
 		
-		for(int i=0;i<=3;i++) {
+		for(int i=0;i<=5;i++) {
 			JSONObject data = new JSONObject();
 			
-			data.put("이름","인간_"+i);
-			data.put("나이",10+i);
-			data.put("사는 지역","서울 종로구 "+i+" 길");
+			data.put("이름", "인간_"+i);
+			data.put("주소", "서울시 종로구 "+i+" 길");
+			data.put("나이", (10*i)+i);
+			
 			array.add(data);
 		}
 		
-		json.put("사람들", array);
-		
-		
-		System.out.println(json);
-		System.out.println(array);
+		json.put("사람들",array);
 		
 		return json;
 	}

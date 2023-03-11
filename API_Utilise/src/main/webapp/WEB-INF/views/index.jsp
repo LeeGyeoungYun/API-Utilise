@@ -38,6 +38,10 @@
 					<span><h3>6. JSON 테스트</h3></span>
 					<span class="mileSpan">-> <a href="json_test">JSON 테스트 바로가기</a></span>
 				</li>
+				<li>
+					<span><h3>7. RESTController CRUD 댓글 </h3></span>
+					<span class="mileSpan">-> <a href="reply">댓글 테스트 바로가기</a></span>
+				</li>
 			</ul>
 		
 		</div>
