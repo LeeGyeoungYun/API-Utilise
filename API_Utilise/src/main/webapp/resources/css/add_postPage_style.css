@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+*{
+	margin:0;
+	padding:0;
+	list-style: none;
+	text-decoration: none;
+}
+
+.postContainer{
+	width:800px;
+	height: 700px;
+	margin:100px auto;
+	border: 2px solid black;
+	border-radius: 20px;
+	padding:30px;
+}
+
+.identiBox{
+	width: 80%;
+	height: 17%;
+	border: 1px solid black;
+	margin: 50px auto 40px;
+	padding:30px;
+	font-size: 20px;
+}
+
+.identiSpan{
+	display: block;
+	margin-top: 15px;	
+}
+
+.identiBox input{
+	padding:10px;
+	width: 250px;
+}
+
+.textBox{
+	width: 80%;
+	height: 45%;
+	margin:30px auto 0;
+	padding:30px;
+	font-size: 20px;
+	border: 1px solid black;
+}
+
+.textSpace{
+	
+	//margin:20px auto;
+	width: 610px;
+    height: 213px;
+    resize: none;
+    outline: none;
+    padding:10px 15px;
+    font-size:25px;
+    
+}
+
+.submitBox{
+	width: 80%;
+    height: 15%;
+    margin: 15px auto 0;
+    position: relative;
+}
+
+.postSubmit{
+	width: 65px;
+	height: 45px;
+	position: absolute;
+	top:0px;
+	right: -30px;
+	background-color: #a2ffa2;
+	font-size: 20px;
+	border: none;
+	//color:#b92717;
+}
+
+.postSubmit:hover{
+	cursor: pointer;
+	background-color: #00ae00;
+}

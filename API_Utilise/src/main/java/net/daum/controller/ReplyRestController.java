@@ -21,12 +21,7 @@ public class ReplyRestController {
 	}
 	
 	
-	@GetMapping("/reply")
-	public String replyIndex() {
-		
-		
-		return "여기는 reply 페이지입니다."; // -> 이렇게 보냈을때 ??? reply ?????. 이렇게 출력이됨. 원인 분석해야함.
-	}
+	
 	
 
 }
