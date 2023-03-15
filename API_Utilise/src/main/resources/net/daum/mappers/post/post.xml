@@ -11,5 +11,9 @@
  		insert into post (pno,postId,postPwd,postComment,create_date) 
  		values (post_seq.nextval,#{postId},#{postPwd},#{postComment},sysdate)
  	</insert>
+ 	
+ 	<select id="getAllPost" resultType="p">
+ 		select * from post order by pno
+ 	</select>
  
  </mapper>

@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ReplyController {
 	
-	@GetMapping(value="/reply")
+	@GetMapping(value="/post")
 	public String replyPage() {
 		
-		return "replyPage";
+		return "postPage";
 	}
 	
 	@GetMapping("add_post")

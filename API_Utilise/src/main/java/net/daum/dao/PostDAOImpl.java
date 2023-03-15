@@ -1,5 +1,7 @@
 package net.daum.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,6 +17,11 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public void insertPost(PostVO post) {
 		this.sqlSession.insert("insertPost",post);
+	}
+
+	@Override
+	public List<PostVO> getAllPost() {		
+		return this.sqlSession.selectList("getAllPost");
 	}
 
 }

@@ -1,5 +1,7 @@
 package net.daum.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -16,6 +18,11 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public void insertPost(PostVO post) {
 		this.postDao.insertPost(post);
+	}
+
+	@Override
+	public List<PostVO> getAllPost() {		
+		return this.postDao.getAllPost();
 	}
 
 }

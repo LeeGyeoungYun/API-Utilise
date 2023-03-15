@@ -50,9 +50,12 @@
 					postComment:postComment //내용
 				}),
 				success:function(data){
-					console.log("성공");
-					console.log(data);
-					console.log(data.success);
+					
+					if(data == "success"){
+						console.log("정보 저장 성공");
+					}else{
+						console.log("정보 저장 실패");
+					}
 					
 				},error:function(){
 					console.log("오류");			

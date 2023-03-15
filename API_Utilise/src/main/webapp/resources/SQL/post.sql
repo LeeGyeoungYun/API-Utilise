@@ -11,7 +11,7 @@ create table post( -- 게시물 테이블
  
 );
 
-select * from post;
+select * from post order by pno desc;
 drop table post;
 
 create sequence post_seq

@@ -1,5 +1,7 @@
 package net.daum.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,15 +42,18 @@ public class ReplyRestController {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			entity = new ResponseEntity<>("success",HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
 		}
-		
-		System.out.println(entity);
-		System.out.println(po);
-		
 		return entity;
 	}
 	
+	@GetMapping("/post/all")
+	public List<PostVO> getAllPost(){//게시물 출력
+		
+		List<PostVO> po = this.postService.getAllPost();
+		
+		return po;
+	}
 	
 	
 
