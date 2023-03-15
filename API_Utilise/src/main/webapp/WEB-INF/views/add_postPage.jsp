@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/add_postPage_style.css">
+<script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <title>게시물 작성 페이지</title>
 </head>
 <body>
@@ -19,8 +20,46 @@
 		</div>
 	
 		<div class="submitBox">
-			<input type="submit" class="postSubmit" value="전송">
+			<input type="button" class="postSubmit" value="전송">
 		</div>
 	</form>
 </body>
+
+<script>
+	window.onload = function(){
+		
+		var submitBtn = document.querySelector(".postSubmit");
+		
+		submitBtn.addEventListener("click",function(){
+			
+			var postId = document.getElementById("id").value;
+			var postPwd = document.getElementById("pwd").value;
+			var postComment = document.querySelector(".textSpace").value;			
+			
+			$.ajax({
+				type:"POST",
+				url:"/API_Utilise/add_post/add",
+				headers:{
+					"Content-Type":"application/json",
+					"X-HTTP-Method-Override":"POST"
+				},
+				dataType:"text",
+				data:JSON.stringify({
+					postId:postId, //아이디
+					postPwd:postPwd, //비밀번호
+					postComment:postComment //내용
+				}),
+				success:function(data){
+					console.log("성공");
+					console.log(data);
+					console.log(data.success);
+					
+				},error:function(){
+					console.log("오류");			
+				}
+				
+			});
+		});
+	}
+</script>
 </html>
