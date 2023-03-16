@@ -32,7 +32,7 @@ public class ReplyRestController {
 		return ma;
 	}
 	
-	@PostMapping("/add_post/add")
+	@PostMapping("/add_post/add") // 게시판 생성
 	public ResponseEntity<String> addPost(@RequestBody PostVO po){
 		
 		ResponseEntity<String> entity = null;
@@ -47,13 +47,14 @@ public class ReplyRestController {
 		return entity;
 	}
 	
-	@GetMapping("/post/all")
+	@GetMapping("/post/all") // 게시판 조회
 	public List<PostVO> getAllPost(){//게시물 출력
 		
 		List<PostVO> po = this.postService.getAllPost();
 		
 		return po;
 	}
+	
 	
 	
 
