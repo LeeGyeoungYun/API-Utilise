@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,11 @@
 		<div class="readBox">
 			<div class="space space1">
 				<a href="post/all"><input type="button" class="innerBtn" value="게시물 전체보기"></a>
+				<br><br>
+				<c:forEach var="p" items="${po}">
+					<a href="selectPost?pno=${p.pno}"><input type="button" class="move" value="게시판이동"></a>
+				</c:forEach>
+				
 			</div>
 		</div>
 	</div>
