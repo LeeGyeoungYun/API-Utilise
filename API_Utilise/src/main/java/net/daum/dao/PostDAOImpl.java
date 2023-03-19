@@ -24,4 +24,9 @@ public class PostDAOImpl implements PostDAO {
 		return this.sqlSession.selectList("getAllPost");
 	}
 
+	@Override
+	public PostVO getSelectPost(int pno) {		
+		return this.sqlSession.selectOne("getSelectPost",pno);
+	}
+
 }

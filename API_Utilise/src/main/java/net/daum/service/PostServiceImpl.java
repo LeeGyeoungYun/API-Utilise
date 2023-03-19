@@ -25,4 +25,9 @@ public class PostServiceImpl implements PostService {
 		return this.postDao.getAllPost();
 	}
 
+	@Override
+	public PostVO getSelectPost(int pno) {		
+		return this.postDao.getSelectPost(pno);
+	}
+
 }

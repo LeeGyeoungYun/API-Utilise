@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>몇번째 게시판</title>
+<title> </title>
 </head>
 <body>
-	
+
 </body>
 </html>

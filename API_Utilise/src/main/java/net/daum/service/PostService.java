@@ -8,5 +8,6 @@ public interface PostService {
 	
 	void insertPost(PostVO post);
 	List<PostVO> getAllPost();
+	PostVO getSelectPost(int pno);
 
 }

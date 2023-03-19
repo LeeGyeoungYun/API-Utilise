@@ -22,19 +22,21 @@ public class ReplyController {
 		List<PostVO> po = this.postService.getAllPost();
 		model.addAttribute("po",po);
 		
-		return "postPage";
+		return "/reply/postPage";
 	}
 	
 	@GetMapping("add_post")
 	public String add_postPage() {				
-		return "add_postPage";
+		return "/reply/add_postPage";
 	}
 	
 	@GetMapping(value="/selectPost")
-	public String selectPost(int pno) {
+	public String selectPost(int pno,PostVO post,Model model) {
 		
-		System.out.println(pno); //해당 게시물번호
-		return "selectPost";
+		post = this.postService.getSelectPost(pno);
+		model.addAttribute("po",post);
+		
+		return "/reply/selectPost";
 	}
 	
 }

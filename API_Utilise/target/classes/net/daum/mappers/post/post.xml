@@ -15,5 +15,10 @@
  	<select id="getAllPost" resultType="p">
  		select * from post order by pno
  	</select>
+ 	
+ 	<!-- 선택된 게시판값 출력 -->
+ 	<select id="getSelectPost" parameterType="int" resultType="p"> 
+ 		select * from post where pno=#{pno}
+ 	</select>
  
  </mapper>

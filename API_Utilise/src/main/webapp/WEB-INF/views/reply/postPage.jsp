@@ -17,8 +17,15 @@
 			<div class="space space1">
 				<a href="post/all"><input type="button" class="innerBtn" value="게시물 전체보기"></a>
 				<br><br>
+				
+				<p>전통방식</p>
 				<c:forEach var="p" items="${po}">
 					<a href="selectPost?pno=${p.pno}"><input type="button" class="move" value="게시판이동"></a>
+				</c:forEach>
+				
+				<p>REST방식</p>
+				<c:forEach var="p" items="${po}">
+					<a href="rest-selectPost/${p.pno}"><input type="button" class="move" value="게시판이동"></a>
 				</c:forEach>
 				
 			</div>

@@ -21,3 +21,6 @@ nocache;
 
 drop sequence post_seq;
 
+
+select * from post where pno= 1;
+
