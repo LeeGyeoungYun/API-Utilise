@@ -14,9 +14,16 @@ create table REPLY(
 );
 
 select * from reply order by rno
+drop table reply;
+drop sequence rno_seq;
 
 create sequence rno_seq  -- 댓글 시퀀스 생성
 start with 1
 increment by 1
 nocache;
 
+alter table reply add constraint FK_REPLY_PNO foreign key(pno) references post(pno) on delete cascade;
+alter table reply drop constraint reply_pno_fk;--제약조건 삭제
+
+insert into REPLY (rno,pno,replyId,replyPwd,replyComment,replyClass,replyOrder,replyGroupNum,create_date) 
+ 		values(rno_seq.nextval, '1','aa123','1234','안녕하세요','0','0',rno_seq.nextval,sysdate);

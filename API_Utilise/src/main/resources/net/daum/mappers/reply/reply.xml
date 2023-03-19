@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 매퍼 DTD설정 -->
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Reply">
+ 
+ 	<!-- 댓글생성 -->
+ 	<insert id="insertReply" parameterType="rp">
+ 		insert into REPLY (rno,pno,replyId,replyPwd,replyComment,replyClass,replyOrder,replyGroupNum,create_date) 
+ 		values(rno_seq.nextval, #{pno},#{replyId},#{replyPwd},#{replyComment},'0','0',rno_seq.nextval,sysdate)
+ 	</insert>
+ 	
+ 	
+ </mapper>

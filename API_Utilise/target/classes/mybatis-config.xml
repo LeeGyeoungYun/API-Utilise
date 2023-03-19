@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	 	
 	 	<typeAlias type="net.daum.vo.WeatherCrawVO" alias="wc"/> <!-- 별칭 -->
 	 	<typeAlias type="net.daum.vo.PostVO" alias="p"/>
+	 	<typeAlias type="net.daum.vo.ReplyVO" alias="rp"/>
 	 	
 	</typeAliases>
 </configuration>

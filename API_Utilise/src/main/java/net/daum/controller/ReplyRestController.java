@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.daum.service.PostService;
+import net.daum.service.ReplyService;
 import net.daum.vo.PostVO;
+import net.daum.vo.ReplyVO;
 
 @RestController
 public class ReplyRestController {
@@ -25,6 +27,9 @@ public class ReplyRestController {
 	
 	@Autowired
 	private PostService postService;
+	
+	@Autowired
+	private ReplyService replyService;
 	
 	@GetMapping("/movePage_test") // 이렇게 하면 페이지 이동을 할 수 있다.
 	public ModelAndView movePage_test() {//ModelAndView 사용
@@ -61,6 +66,14 @@ public class ReplyRestController {
 		
 		PostVO po = this.postService.getSelectPost(pno);
 		return po;
+	}
+	
+	@PostMapping("/reply/add")  //댓글 생성
+	public void insertReply(@RequestBody ReplyVO rp) {
+		System.out.println(rp);
+		this.replyService.insertReply(rp);
+		
+		
 	}
 	
 	
