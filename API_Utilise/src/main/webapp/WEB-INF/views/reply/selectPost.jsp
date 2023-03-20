@@ -38,46 +38,77 @@
 
 <script>
 	window.onload = function(){
-		
-		
-		
-		var replySubmit = document.querySelector(".replySubmit");
-		replySubmit.addEventListener("click",function(){
+		getRepies();
+	}
+	var pno = ${po.pno};
+	
+	function getRepies(){ //댓글들 불러오기
+		$.getJSON("/API_Utilise/reply/all/"+pno,function(data){
+			var str = "";
+			$(data).each(function(){
+				str += 
 				
-			var pno = ${po.pno};
-			var replyId = document.getElementById("replyId").value;
-			var replyPwd = document.getElementById("replyPwd").value;
-			var replyComment = document.getElementsByClassName("replyComment")[0].value;
-			
-			console.log(pno+" "+replyId+" "+replyPwd+" "+replyComment);
-			
-			$.ajax({			
-				
-				url:"/API_Utilise/reply/add",
-				type:"POST",
-				headers:{
-					"Content-Type":"application/json",
-					"X-Http-Method-Override":"POST"
-				},
-				dataType:'text',
-				data:JSON.stringify({
-					pno:pno,
-					replyId:replyId,
-					replyPwd:replyPwd,
-					replyComment:replyComment					
-				}),
-				success:function(){
-					console.log("성공");
-				},error:function(){
-					console.log("실패");
-				}
-					
+					"<div class='writeBox' data-rno='"+this.rno+"'>"
+				   +"아이디 : <input type='text' id='replyId2' class='replyId2' value='"+this.replyId+"' readonly><br>"					
+				   +"<span>" 
+				   +"댓글 : <textarea class='replyComment2' readonly>"+this.replyComment+"</textarea>"
+				   +"	<input type='button' class='replySubmit' value='수정'>"
+				   +"	<input type='button' class='replySubmit' value='삭제'>"
+				   +"   <input type='button' class='replySubmit2' value='댓글추가'>"
+				   +"</span>"
+				   +"</div>"
 			});
 			
+			$(".replyBox").html(str);
 		});
 		
+	}//getRepies() end
+	
+	
+	var replySubmit = document.querySelector(".replySubmit");
+	replySubmit.addEventListener("click",function(){
+			
 		
+		var replyId = document.getElementById("replyId").value;
+		var replyPwd = document.getElementById("replyPwd").value;
+		var replyComment = document.getElementsByClassName("replyComment")[0].value;
 		
+		console.log(pno+" "+replyId+" "+replyPwd+" "+replyComment);
+		
+		$.ajax({			
+			
+			url:"/API_Utilise/reply/add",
+			type:"POST",
+			headers:{
+				"Content-Type":"application/json",
+				"X-Http-Method-Override":"POST"
+			},
+			dataType:'text',
+			data:JSON.stringify({
+				pno:pno,
+				replyId:replyId,
+				replyPwd:replyPwd,
+				replyComment:replyComment					
+			}),
+			success:function(){
+				console.log("성공");
+				clear();// 작성한 내용 삭제
+				getRepies();
+				
+				
+			},error:function(){
+				console.log("실패");
+			}
+				
+		});
+		
+	});
+	
+	function clear(){
+		document.getElementById("replyId").value = '';
+		document.getElementById("replyPwd").value = '';
+		document.getElementsByClassName("replyComment")[0].value = '';
 	}
+	
 </script>
 </html>

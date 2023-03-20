@@ -68,14 +68,14 @@ public class ReplyRestController {
 	}
 	
 	@GetMapping("/rest-selectPost/{pno}")
-	public PostVO rest_selectPost(@PathVariable("pno") int pno) {
+	public PostVO rest_selectPost(@PathVariable("pno") int pno) { // 해당 게시물 데이터 조회
 		
 		PostVO po = this.postService.getSelectPost(pno);
 		return po;
 	}
 	
 	@GetMapping("/rest-getReply/{pno}")
-	public List<ReplyVO> rest_getReply(@PathVariable("pno") int pno){
+	public List<ReplyVO> rest_getReply(@PathVariable("pno") int pno){ // 해당 게시물 댓글 데이터 조회
 		List<ReplyVO> pl = this.replyService.getReply(pno); 
 		return pl;
 	}
@@ -120,6 +120,19 @@ public class ReplyRestController {
 	}//insertReply() end
 	
 	
+	@GetMapping("/reply/all/{pno}") //게시물 댓글 목록 불러오기
+	public ResponseEntity<List<ReplyVO>> getReplies(@PathVariable("pno") int pno){
+		
+		ResponseEntity<List<ReplyVO>> entity = null;
+		try {
+			entity = new ResponseEntity<List<ReplyVO>>(this.replyService.getReply(pno),HttpStatus.OK);
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<List<ReplyVO>>(HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
 	
 
 }
