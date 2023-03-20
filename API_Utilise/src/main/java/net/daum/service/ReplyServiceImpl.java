@@ -1,5 +1,7 @@
 package net.daum.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -16,6 +18,11 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public void insertReply(ReplyVO rp) {
 		this.replyDao.insertReply(rp);
+	}
+
+	@Override
+	public List<ReplyVO> getReply(int pno) {		
+		return this.replyDao.getReply(pno);
 	}
 
 }

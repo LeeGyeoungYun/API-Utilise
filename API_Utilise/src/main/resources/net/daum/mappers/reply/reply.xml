@@ -13,5 +13,12 @@
  		values(rno_seq.nextval, #{pno},#{replyId},#{replyPwd},#{replyComment},'0','0',rno_seq.nextval,sysdate)
  	</insert>
  	
+ 	<!-- 게시판 모든 댓글리스트 조회 -->
+ 	<select id="getReply" parameterType="int" resultType="rp">
+ 		select * from reply where pno = #{pno} order by rno desc
+ 	</select>
+ 	
+ 	
+ 	
  	
  </mapper>

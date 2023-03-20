@@ -39,6 +39,8 @@
 <script>
 	window.onload = function(){
 		
+		
+		
 		var replySubmit = document.querySelector(".replySubmit");
 		replySubmit.addEventListener("click",function(){
 				

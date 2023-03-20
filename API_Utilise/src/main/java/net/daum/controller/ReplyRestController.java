@@ -1,6 +1,10 @@
 package net.daum.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.daum.service.PostService;
@@ -68,13 +74,50 @@ public class ReplyRestController {
 		return po;
 	}
 	
-	@PostMapping("/reply/add")  //댓글 생성
-	public void insertReply(@RequestBody ReplyVO rp) {
-		System.out.println(rp);
-		this.replyService.insertReply(rp);
-		
-		
+	@GetMapping("/rest-getReply/{pno}")
+	public List<ReplyVO> rest_getReply(@PathVariable("pno") int pno){
+		List<ReplyVO> pl = this.replyService.getReply(pno); 
+		return pl;
 	}
+	
+	@PostMapping("/reply/add")  //댓글 생성
+	public void insertReply(@RequestBody ReplyVO rp) throws UnknownHostException {
+		System.out.println(rp);
+			
+		if(rp.getReplyId()==null || rp.getReplyId().equals("")) { //아이디를 적지 않은경우 아이디를 아이피로 대신한다
+			HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+			String ip = request.getHeader("X-Forwarded-For");
+			
+			 if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+			        ip = request.getHeader("Proxy-Client-IP"); 
+			    } 
+			    if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+			        ip = request.getHeader("WL-Proxy-Client-IP"); 
+			    } 
+			    if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+			        ip = request.getHeader("HTTP_CLIENT_IP"); 
+			    } 
+			    if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+			        ip = request.getHeader("HTTP_X_FORWARDED_FOR"); 
+			    }
+			    if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+			        ip = request.getHeader("X-Real-IP"); 
+			    }
+			    if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+			        ip = request.getHeader("X-RealIP"); 
+			    }
+			    if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+			        ip = request.getHeader("REMOTE_ADDR");
+			    }
+			    if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+			        ip = request.getRemoteAddr(); 
+			    }
+			
+			rp.setReplyId(ip);
+		}
+		this.replyService.insertReply(rp); //댓글 저장
+		
+	}//insertReply() end
 	
 	
 	
