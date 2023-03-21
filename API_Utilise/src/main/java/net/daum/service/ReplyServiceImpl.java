@@ -25,4 +25,19 @@ public class ReplyServiceImpl implements ReplyService {
 		return this.replyDao.getReply(pno);
 	}
 
+	@Override
+	public void updateReply(ReplyVO rp) {
+		this.replyDao.updateReply(rp);
+	}
+
+	@Override
+	public int replyPwdConfirm(ReplyVO rp) {		
+		return this.replyDao.replyPwdConfirm(rp);
+	}
+
+	@Override
+	public ReplyVO getSelect_ReplyInfo(int rno) {	
+		return this.replyDao.getSelect_ReplyInfo(rno);
+	}
+
 }

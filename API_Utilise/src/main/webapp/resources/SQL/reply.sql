@@ -14,6 +14,10 @@ create table REPLY(
 );
 
 select * from reply order by rno desc
+
+select count(*) from reply where rno = '18' and replyPwd = 'aa'; 
+delete from reply where rno = 22;
+
 drop table reply;
 drop sequence rno_seq;
 

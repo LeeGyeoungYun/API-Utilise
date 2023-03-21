@@ -24,4 +24,19 @@ public class ReplyDAOImpl implements ReplyDAO {
 		return this.sqlSession.selectList("getReply",pno);
 	}
 
+	@Override
+	public void updateReply(ReplyVO rp) {
+		this.sqlSession.update("updateReply",rp);
+	}
+
+	@Override
+	public int replyPwdConfirm(ReplyVO rp) {		
+		return this.sqlSession.selectOne("replyPwdConfirm",rp);
+	}
+
+	@Override
+	public ReplyVO getSelect_ReplyInfo(int rno) {
+			return this.sqlSession.selectOne("getSelect_ReplyInfo",rno);
+	}
+
 }

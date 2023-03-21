@@ -7,6 +7,20 @@
 	text-decoration: none;
 }
 
+.overlay{
+	position: fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.6;
+	z-index:1;
+	visibility: hidden;
+}
+
 .postContainer{
 	display:flex;
 	margin:100px auto;
@@ -133,4 +147,48 @@
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
+}
+
+
+.modal{
+	position: fixed;
+	width: 550px;
+	min-height: 400px;
+	background: white;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	z-index:2;
+	visibility: hidden;
+	
+}
+
+.modalTextBox{
+	width:80%;
+	height: 80px;
+	font-size: 20px;
+	color:#ff6868;
+	margin:40px auto;
+	padding:10px 0 10px 30px;
+	line-height: 80px;
+	border:1px solid black;
+}
+
+.modalPwdBox{
+	width:80%;
+	height: 160px;
+	margin:20px auto;
+	border:1px solid black;
+	padding:10px 0 10px 30px;
+}
+
+.modalPwdSpace{
+	margin:70px 0 0 30px; 
+	width:200px; 
+	padding:13px;	
+}
+
+.pwdConfirm{
+	padding:13px;
+	margin-left: 20px;
 }

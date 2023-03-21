@@ -13,11 +13,31 @@
  		values(rno_seq.nextval, #{pno},#{replyId},#{replyPwd},#{replyComment},'0','0',rno_seq.nextval,sysdate)
  	</insert>
  	
+ 	<!-- 해당 댓글 정보 불러오기 -->
+ 	<select id="getSelect_ReplyInfo" parameterType="int" resultType="rp">
+ 		select * from reply where rno = #{rno}
+ 	</select>
+ 	
  	<!-- 게시판 모든 댓글리스트 조회 -->
  	<select id="getReply" parameterType="int" resultType="rp">
  		select * from reply where pno = #{pno} order by rno desc
  	</select>
  	
+ 	<!-- 댓글 수정 -->
+ 	<update id="updateReply" parameterType="rp">
+ 		update REPLY set replyId = #{replyId}, replyPwd = #{replyPwd}, replyComment =#{replyComment}
+ 		where rno = #{rno}
+ 	</update>
+ 	
+ 	<!-- 댓글 삭제 -->
+ 	<delete id="deleteReply" parameterType="int">
+ 		delete from REPLY where rno = #{rno}
+ 	</delete>
+ 	
+ 	<!-- 비밀번호 확인 -->
+ 	<select id="replyPwdConfirm" parameterType="rp" resultType="int">
+ 		select count(*) from reply where rno = #{rno} and replyPwd = #{replyPwd}
+ 	</select>
  	
  	
  	

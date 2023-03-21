@@ -8,6 +8,8 @@
 <title>${po.pno} 게시판 댓글 작성 페이지</title>
 </head>
 <body>
+	<div class="overlay"></div>
+	
 	<div class="postContainer">
 	<form class="postForm">
 		<div class="identiBox">
@@ -34,8 +36,27 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal">
+		<input type="hidden" class="rnoSpace">
+		<div class="modalTextBox">
+			<p>비밀번호를 입력해주세요.</p>
+		</div>
+		<div class="modalPwdBox">
+			
+			<input type="password" class="modalPwdSpace" placeholder="비밀번호를 입력하세요.">
+			<input type="button" class="pwdConfirm" onclick="pwdConfirm()" value="확인">
+		</div>
+		<div class="writeBox">
+				아이디 : <input type="text" class="replyId ri" value="${replyId}"><br>
+				패스워드 : <input type="password" class="replyPwd rp"><br>
+				<span> 
+				댓글 : <textarea class="replyComment rc"></textarea>
+				<input type="button" class="update" onclick="replyUpdate()" value="수정"></span>		
+			</div>
+	</div>
 </body>
-
+<script src="${pageContext.request.contextPath}/resources/js/selectPost.js"></script>
 <script>
 	window.onload = function(){
 		getRepies();
@@ -49,11 +70,11 @@
 				str += 
 				
 					"<div class='writeBox' data-rno='"+this.rno+"'>"
-				   +"아이디 : <input type='text' id='replyId2' class='replyId2' value='"+this.replyId+"' readonly><br>"					
+				   +"아이디 : <input type='text' class='replyId2' value='"+this.replyId+"' readonly><br>"					
 				   +"<span>" 
 				   +"댓글 : <textarea class='replyComment2' readonly>"+this.replyComment+"</textarea>"
-				   +"	<input type='button' class='replySubmit' value='수정'>"
-				   +"	<input type='button' class='replySubmit' value='삭제'>"
+				   +"	<input type='button' data-rno='"+this.rno+"' class='updateBtn' onclick='update("+this.rno+");' value='수정'>"
+				   +"	<input type='button' class='deleteBtn' value='삭제'>"
 				   +"   <input type='button' class='replySubmit2' value='댓글추가'>"
 				   +"</span>"
 				   +"</div>"
