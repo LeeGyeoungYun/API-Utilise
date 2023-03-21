@@ -11,4 +11,5 @@ public interface ReplyService {
 	void updateReply(ReplyVO rp);
 	int replyPwdConfirm(ReplyVO rp);
 	ReplyVO getSelect_ReplyInfo(int rno);
+	void deleteReply(int rno);
 }

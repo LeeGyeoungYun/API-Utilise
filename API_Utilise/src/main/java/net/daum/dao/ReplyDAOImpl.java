@@ -39,4 +39,9 @@ public class ReplyDAOImpl implements ReplyDAO {
 			return this.sqlSession.selectOne("getSelect_ReplyInfo",rno);
 	}
 
+	@Override
+	public void deleteReply(int rno) {	
+		this.sqlSession.delete("deleteReply",rno);
+	}
+
 }

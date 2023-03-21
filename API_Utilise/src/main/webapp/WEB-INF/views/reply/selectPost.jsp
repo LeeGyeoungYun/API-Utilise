@@ -55,6 +55,18 @@
 				<input type="button" class="update" onclick="replyUpdate()" value="수정"></span>		
 			</div>
 	</div>
+	<div class="modal2">
+		<input type="hidden" class="rnoSpace">
+		<div class="modalTextBox">
+			<p>비밀번호를 입력해주세요.</p>
+		</div>
+		
+		<div class="modalPwdBox">
+			
+			<input type="password" class="modalPwdSpace mps2" placeholder="비밀번호를 입력하세요.">
+			<input type="button" class="pwdConfirm" onclick="pwdConfirm2()" value="확인">
+		</div>
+	</div>
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/selectPost.js"></script>
 <script>
@@ -74,7 +86,7 @@
 				   +"<span>" 
 				   +"댓글 : <textarea class='replyComment2' readonly>"+this.replyComment+"</textarea>"
 				   +"	<input type='button' data-rno='"+this.rno+"' class='updateBtn' onclick='update("+this.rno+");' value='수정'>"
-				   +"	<input type='button' class='deleteBtn' value='삭제'>"
+				   +"	<input type='button' data-rno='"+this.rno+"' class='deleteBtn' onclick='deleteModal("+this.rno+");' value='삭제'>"
 				   +"   <input type='button' class='replySubmit2' value='댓글추가'>"
 				   +"</span>"
 				   +"</div>"

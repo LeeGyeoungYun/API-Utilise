@@ -11,5 +11,7 @@ public interface ReplyDAO {
 	void updateReply(ReplyVO rp);
 	int replyPwdConfirm(ReplyVO rp); //해당게시물 수정하기전 비밀번호 확인
 	ReplyVO getSelect_ReplyInfo(int rno); //해당 댓글 정보 불러오기
+	void deleteReply(int rno); //해당 댓글 삭제
+	
 
 }

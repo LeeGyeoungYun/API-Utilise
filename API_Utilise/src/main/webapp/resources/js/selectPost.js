@@ -8,6 +8,14 @@ function update(number){
 	document.querySelector(".rnoSpace").value= number;
 }
 
+function deleteModal(number){
+	//console.log(number);
+	document.querySelector(".overlay").style.visibility = 'visible';
+	document.querySelector(".modal2").style.visibility = 'visible';
+	document.querySelector(".rnoSpace").value= number;
+	
+}//delete()
+
 $(".overlay").click(function (){ //모달창 끄기
 	closeModal();
 });
@@ -15,7 +23,9 @@ $(".overlay").click(function (){ //모달창 끄기
 function closeModal(){
 	document.querySelector(".overlay").style.visibility = 'hidden';
 	document.querySelector(".modal").style.visibility = 'hidden';
+	document.querySelector(".modal2").style.visibility = 'hidden';
 	document.querySelector(".modalPwdSpace").value = '';
+	document.querySelector(".mps2").value = '';
 	
 	document.querySelector(".ri").value = '';
 	document.querySelector(".rp").value = '';
@@ -60,6 +70,54 @@ function pwdConfirm(){
 		}
 	});
 	
+}
+
+function pwdConfirm2(){
+	const rno = document.querySelector(".rnoSpace").value;
+	let pwd = document.querySelector(".mps2").value;
+	
+	if(pwd.trim() == ''|| pwd.length ==0){
+		alert("비밀번호를 비어있습니다. 다시 입력해주세요.");
+		document.querySelector(".modalPwdSpace").focus();
+		return false;
+	}
+	
+	if(confirm("정말 삭제하시겠습니까?")){
+	
+		$.ajax({
+			type:"DELETE",
+			url:"/API_Utilise/reply/delete/"+rno,
+			headers:{
+				"Content-Type":"application/json",
+				"X-Http-Method-Override":"PUT"
+			},
+			data:JSON.stringify({	
+				
+				rno:rno,		
+				replyPwd:pwd
+							
+			}),
+			success:function(data){
+			
+				
+				console.log(data);
+			
+				if(data =='success'){ //삭제에 성공했다면?
+					console.log("성공");
+					closeModal();
+					getRepies();
+				}else{//삭제에 실패했다면?
+					console.log("실패");
+					alert("비밀번호가 일치하지 않습니다.");
+					document.querySelector(".mps2").value= '';
+					document.querySelector(".mps2").focus();
+				}
+			
+			},error:function(){
+				console.log("에러");
+			}
+		});
+	}
 }
 
 function replyUpdate(){

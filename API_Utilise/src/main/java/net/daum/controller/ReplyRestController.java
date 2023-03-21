@@ -1,14 +1,16 @@
 package net.daum.controller;
 
-import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -140,6 +142,36 @@ public class ReplyRestController {
 		
 		this.replyService.updateReply(rp);
 		
+	}
+	
+	@DeleteMapping("/reply/delete/{rno}")
+	public ResponseEntity<String> deleteReply(@PathVariable("rno") int rno,@RequestBody ReplyVO rp) {
+		
+		ResponseEntity<String> entity = null;
+		
+		int count = this.replyService.replyPwdConfirm(rp);
+		
+		
+		
+		if(count>0) {//비밀번호가 일치하다면?
+			try {
+				this.replyService.deleteReply(rno);//댓글삭제
+				entity = new ResponseEntity<String>("success",HttpStatus.OK);
+			}catch(Exception e) {
+				e.printStackTrace();
+				entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+			}
+			
+		}else {
+			try {				
+				entity = new ResponseEntity<String>("fail",HttpStatus.OK);
+			}catch(Exception e) {
+				e.printStackTrace();
+				entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+			}
+		}
+		
+		return entity;
 	}
 
 }

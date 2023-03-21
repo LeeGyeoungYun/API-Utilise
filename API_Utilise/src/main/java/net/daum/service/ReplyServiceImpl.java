@@ -40,4 +40,9 @@ public class ReplyServiceImpl implements ReplyService {
 		return this.replyDao.getSelect_ReplyInfo(rno);
 	}
 
+	@Override
+	public void deleteReply(int rno) {		
+		this.replyDao.deleteReply(rno);
+	}
+
 }
