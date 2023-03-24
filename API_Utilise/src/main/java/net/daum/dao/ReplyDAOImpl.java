@@ -18,6 +18,11 @@ public class ReplyDAOImpl implements ReplyDAO {
 	public void insertReply(ReplyVO rp) {
 		this.sqlSession.insert("insertReply",rp);
 	}
+	
+	@Override
+	public void insertReplyReply(ReplyVO rp) { //대댓
+		this.sqlSession.insert("insertReplyReply",rp);		
+	}
 
 	@Override
 	public List<ReplyVO> getReply(int pno) {		
@@ -43,5 +48,7 @@ public class ReplyDAOImpl implements ReplyDAO {
 	public void deleteReply(int rno) {	
 		this.sqlSession.delete("deleteReply",rno);
 	}
+
+	
 
 }

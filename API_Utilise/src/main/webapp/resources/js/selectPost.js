@@ -153,3 +153,49 @@ function replyUpdate(){
 }//replyUpdate() end
 
 
+function replyReply(number){
+	let reply = document.querySelector(".addReply"+number);
+	
+	if(reply.style.display=='block'){
+		reply.style.display='none';
+	}else{
+		reply.style.display='block';
+	}
+}
+
+function replyReplySubmit(number){
+		let replyId = document.querySelector(".replyId3"+number).value;
+		let replyPwd = document.querySelector(".replyPwd3"+number).value;
+		let replyComment = document.getElementsByClassName("replyComment3"+number)[0].value;
+		
+		console.log(pno+" "+number+" "+replyId+" "+replyPwd+" "+replyComment);
+		
+		$.ajax({			
+			
+			url:"/API_Utilise/reply/addReply",
+			type:"POST",
+			headers:{
+				"Content-Type":"application/json",
+				"X-Http-Method-Override":"POST"
+			},
+			dataType:'text',
+			data:JSON.stringify({
+				pno:pno,			
+				replyGroupNum:number,
+				replyId:replyId,
+				replyPwd:replyPwd,
+				replyComment:replyComment					
+			}),
+			success:function(){
+				console.log("성공");
+				clear();// 작성한 내용 삭제
+				getRepies();
+				
+				
+			},error:function(){
+				console.log("실패");
+			}
+				
+		});
+}
+

@@ -19,6 +19,11 @@ public class ReplyServiceImpl implements ReplyService {
 	public void insertReply(ReplyVO rp) {
 		this.replyDao.insertReply(rp);
 	}
+	
+	@Override
+	public void insertReplyReply(ReplyVO rp) {
+		this.replyDao.insertReplyReply(rp);
+	}
 
 	@Override
 	public List<ReplyVO> getReply(int pno) {		
@@ -44,5 +49,6 @@ public class ReplyServiceImpl implements ReplyService {
 	public void deleteReply(int rno) {		
 		this.replyDao.deleteReply(rno);
 	}
+	
 
 }

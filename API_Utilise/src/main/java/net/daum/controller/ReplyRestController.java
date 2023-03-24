@@ -123,6 +123,13 @@ public class ReplyRestController {
 	}//insertReply() end
 	
 	
+	@PostMapping("/reply/addReply")
+	public void insertRelpyReply(@RequestBody ReplyVO rp) {
+		System.out.println(rp);
+		this.replyService.insertReplyReply(rp); //댓글 저장
+	}
+	
+	
 	@GetMapping("/reply/all/{pno}") //게시물 댓글 목록 불러오기
 	public ResponseEntity<List<ReplyVO>> getReplies(@PathVariable("pno") int pno){
 		

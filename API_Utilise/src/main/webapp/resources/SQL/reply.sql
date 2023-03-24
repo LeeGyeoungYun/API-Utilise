@@ -32,4 +32,14 @@ alter table reply drop constraint reply_pno_fk;--제약조건 삭제
 insert into REPLY (rno,pno,replyId,replyPwd,replyComment,replyClass,replyOrder,replyGroupNum,create_date) 
  		values(rno_seq.nextval, '1','aa123','1234','안녕하세요','0','0',rno_seq.nextval,sysdate);
  		
-select * from reply where pno = 1 order by rno desc;
+select * from reply where pno = 7 order by replyGroupNum desc, replyOrder ASC;
+
+select * from reply order by pno desc, replyOrder asc;
+select * from reply order by pno desc, replyOrder desc;
+insert into REPLY (rno,pno,replyId,replyPwd,replyComment,replyClass,replyOrder,replyGroupNum,create_date) 
+ 		values(rno_seq.nextval, '7','대댓47-2','11','11','1',
+ 		((select MAX(replyOrder) from Reply where replyGroupNum = '47' )+1)
+ 		,'47',sysdate);
+select * from reply where pno = 7 order by replyOrder
+
+select * from reply where pno=7;

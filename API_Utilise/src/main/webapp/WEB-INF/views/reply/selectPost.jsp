@@ -82,13 +82,21 @@
 				str += 
 				
 					"<div class='writeBox' data-rno='"+this.rno+"'>"
-				   +"아이디 : <input type='text' class='replyId2' value='"+this.replyId+"' readonly><br>"					
+				   +"아이디 : <input type='text' class='replyId2' value='"+this.replyId+"' readonly><br>"
+				   +"<div class='textareaBox'>"
 				   +"<span>" 
 				   +"댓글 : <textarea class='replyComment2' readonly>"+this.replyComment+"</textarea>"
 				   +"	<input type='button' data-rno='"+this.rno+"' class='updateBtn' onclick='update("+this.rno+");' value='수정'>"
 				   +"	<input type='button' data-rno='"+this.rno+"' class='deleteBtn' onclick='deleteModal("+this.rno+");' value='삭제'>"
-				   +"   <input type='button' class='replySubmit2' value='댓글추가'>"
+				   +"   <input type='button' class='replySubmit2' onclick='replyReply("+this.rno+")' value='댓글추가'>"
 				   +"</span>"
+				   +"</div>"
+				   +"<div class='addReply addReply"+this.rno+"' >"
+				   +"   아이디 : <input type='text' class='replyId3 replyId3"+this.rno+"'><br>"
+				   +"   패스워드 : <input type='password' class='replyPwd3 replyPwd3"+this.rno+"'><br>"
+				   +"   댓글 : <textarea class='replyComment3 replyComment3"+this.rno+"'></textarea>"
+				   +"   <input type='button' class='pwdConfirm3' onclick='replyReplySubmit("+this.rno+")' value='입력'>"
+				   +"</div>"			
 				   +"</div>"
 			});
 			

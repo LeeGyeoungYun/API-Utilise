@@ -7,6 +7,7 @@ import net.daum.vo.ReplyVO;
 public interface ReplyService {
 	
 	void insertReply(ReplyVO rp);
+	void insertReplyReply(ReplyVO rp);
 	List<ReplyVO> getReply(int pno);
 	void updateReply(ReplyVO rp);
 	int replyPwdConfirm(ReplyVO rp);

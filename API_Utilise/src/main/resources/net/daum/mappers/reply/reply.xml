@@ -13,6 +13,14 @@
  		values(rno_seq.nextval, #{pno},#{replyId},#{replyPwd},#{replyComment},'0','0',rno_seq.nextval,sysdate)
  	</insert>
  	
+ 	<!-- 대댓글생성 -->
+ 	<insert id="insertReplyReply" parameterType="rp">
+ 		insert into REPLY (rno,pno,replyId,replyPwd,replyComment,replyClass,replyOrder,replyGroupNum,create_date) 
+ 		values(rno_seq.nextval, #{pno},#{replyId},#{replyPwd},#{replyComment},'1',
+ 		((select MAX(replyOrder) from Reply where replyGroupNum = #{replyGroupNum} )+1)
+ 		,#{replyGroupNum},sysdate)
+ 	</insert>
+ 	
  	<!-- 해당 댓글 정보 불러오기 -->
  	<select id="getSelect_ReplyInfo" parameterType="int" resultType="rp">
  		select * from reply where rno = #{rno}
@@ -20,12 +28,12 @@
  	
  	<!-- 게시판 모든 댓글리스트 조회 -->
  	<select id="getReply" parameterType="int" resultType="rp">
- 		select * from reply where pno = #{pno} order by rno desc
+ 		select * from reply where pno = #{pno} order by replyGroupNum desc, replyOrder ASC
  	</select>
  	
  	<!-- 댓글 수정 -->
  	<update id="updateReply" parameterType="rp">
- 		update REPLY set replyId = #{replyId}, replyPwd = #{replyPwd}, replyComment =#{replyComment}
+ 		update REPLY set replyId = #{replyId}, replyPwd = #{replyPwd}, replyComment =#{replyComment}, update_date = sysdate
  		where rno = #{rno}
  	</update>
  	
