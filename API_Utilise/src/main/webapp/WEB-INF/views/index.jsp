@@ -42,6 +42,10 @@
 					<span><h3>7. RESTController CRUD 댓글 </h3></span>
 					<span class="mileSpan">-> <a href="post">댓글 테스트 바로가기</a></span>
 				</li>
+				<li>
+					<span><h3>8. 지도 API 활용 테스트 </h3></span>
+					<span class="mileSpan">-> <a href="mapAPI_test">지도 API활용 테스트 바로가기</a></span>
+				</li>
 			</ul>
 		
 		</div>
