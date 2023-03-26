@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+*{
+	margin:0px;
+	padding:0px;
+	list-style: none;
+	text-decoration: none;
+}
+
+.mapContainer{
+	width:1000px;
+	height: 1300px;
+	margin:100px auto;
+	border: 1px solid black;
+}
+
+.mapInfoBox{
+	width:800px;
+	height: 600px;	
+	margin:30px 0 0 30px;
+	border:2px solid black;
+	padding:50px;
+}
+
+.mapInfoBox input{
+	padding:10px;
+}
+
+.infoSpan{
+	display:block;
+	margin-top:5px;
+}
+
+.mapBox{
+	width:500px;
+	height: 500px;
+	border:5px solid black;
+	margin:30px 0 0 30px;
+	align-content: center;
+}
