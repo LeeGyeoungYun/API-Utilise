@@ -25,9 +25,10 @@
 			<input type="button" class="submit2" onclick="mapInfoSubmit2()" value="전송">
 		</div>
 		
-		<div class="mapBox"><!-- 맵이 나오는 공간 -->
+		<div class="mapBox"><!-- 정적 맵이 나오는 공간 -->
 			
-			<img src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=127.141755,37.318835&X-NCP-APIGW-API-KEY-ID={{ztit815g97}}"/>
+			<img src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=500&h=500&center=127.1054221,37.3591614&level=16&X-NCP-APIGW-API-KEY-ID=ztit815g97">
+
 		</div>
 	</div>
 	
@@ -41,18 +42,16 @@
 			
 		$.ajax({
 				
-				url:"https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors",
+				url:"https://naveropenapi.apigw.ntruss.com/map-static/v2/raster?w=300&h=300&center=127.1054221,37.3591614&level=16",
 				type:"GET",
 				headers:{
-					"Content-Type":"application/json",
-					"X-NCP-APIGW-API-KEY-ID":"fadlprzcjp",
-					"X-NCP-APIGW-API-KEY" : "u1tf5Rtl5mceujBRskajSynOZMcGikkHHj9mfutI"
+					"X-NCP-APIGW-API-KEY-ID":"ztit815g97",
+					"X-NCP-APIGW-API-KEY" : "dmDemjuYdK9dFARrprPwxb4GxREWOlFFqyeBBsmg"
 				},
-				data:JSON.stringify({
-					addr:addr
-				}),
+				
 				success:function(response){
 					console.log("성공");
+					
 				},error:function(){
 					console.log("에러");
 				}

@@ -30,18 +30,12 @@ public class MapAPIController { //여기는 MAP_API 활용 테스트를할 컨�
 	}
 	
 	@ResponseBody
-	@GetMapping("https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors")
-	public ResponseEntity<String> maptest(){
+	@GetMapping("https://naveropenapi.apigw.ntruss.com/map-static/v2/raster?w=300&h=300&center=127.1054221,37.3591614&level=16")
+	public String maptest(){
 		
-		 ResponseEntity<String> entity = null;
-		 try {
-			 entity = new ResponseEntity<String>("success",HttpStatus.OK);
-		 }catch(Exception e) {
-			 e.printStackTrace();
-			 entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-		 }
 		 
-		 return entity;
+		 
+		 return "abc";
 	}
 
 }
