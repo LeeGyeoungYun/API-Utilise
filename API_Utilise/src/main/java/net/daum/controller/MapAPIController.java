@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -12,13 +13,19 @@ public class MapAPIController { //여기는 MAP_API 활용 테스트를할 컨�
 	@GetMapping("mapAPI_test")
 	public String mapAPI() {
 		
-		return "mapAPI";
+		return "/map/mapAPI";
 	}
 	
 	@GetMapping("mapDynamic")
 	public String mapDynamic() {
 		
-		return "map_dynamicTest";
+		return "/map/map_dynamicTest";
+	}
+	
+	@GetMapping("mapGeocode")
+	public String mapGeocode() {
+		
+		return "/map/map_geocodeTest";
 	}
 	
 	@ResponseBody
