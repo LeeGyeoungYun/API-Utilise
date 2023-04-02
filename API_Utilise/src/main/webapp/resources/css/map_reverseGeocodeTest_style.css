@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+*{
+	padding:0;
+	margin:0;
+	text-decoration: none;
+}
+
+.reverseGeocodeContainer{
+	margin:100px auto;
+	width: 600px;
+	height: 600px;
+	border:1px solid black;
+	padding:50px;
+}
+
+.address{
+	padding:11px;
+	width:250px;
+	margin-top:10px;
+}
+
+.address_Submit{
+	padding:15px;
+	background-color: #00b300;
+	color:white;
+}
+
+.address_Submit:hover{
+	background-color: #006600;
+	cursor: pointer;
+}

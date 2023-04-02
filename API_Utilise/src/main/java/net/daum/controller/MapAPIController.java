@@ -28,6 +28,12 @@ public class MapAPIController { //여기는 MAP_API 활용 테스트를할 컨�
 		return "/map/map_geocodeTest";
 	}
 	
+	@GetMapping("mapReverseGeocode")
+	public String mapReverseGeocode() {
+		
+		return "/map/map_reverseGeocodeTest";
+	}
+	
 	@ResponseBody
 	@GetMapping("/map/search")
 	public String mapSearch(String width,String height) {

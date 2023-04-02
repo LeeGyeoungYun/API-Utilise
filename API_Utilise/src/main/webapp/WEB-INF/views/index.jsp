@@ -55,6 +55,10 @@
 					<span><h3>9. 지도 geocode API 활용 테스트 </h3></span>
 					<span class="mileSpan">-> <a href="mapGeocode">지도 geocode API활용 테스트 바로가기</a></span>
 				</li>
+				<li>
+					<span><h3>10. 지도 reverse geocoding API 활용 테스트 </h3></span>
+					<span class="mileSpan">-> <a href="mapReverseGeocode">지도 reverse geocoding API활용 테스트 바로가기</a></span>
+				</li>
 			</ul>
 		
 		</div>
