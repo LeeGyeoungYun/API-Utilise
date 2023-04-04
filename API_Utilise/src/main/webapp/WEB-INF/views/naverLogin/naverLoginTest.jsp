@@ -4,21 +4,36 @@
 <head>
 <meta charset="UTF-8">
 <title>네이버 로그인 테스트</title>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    </head>
-    <body>
-    <!-- 네이버 로그인 버튼 노출 영역 -->
-    <div id="naver_id_login"></div>
-    <!-- //네이버 로그인 버튼 노출 영역 -->
-    <script type="text/javascript">
-        var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
-        var state = naver_id_login.getUniqState();
-        naver_id_login.setButton("white", 2,40);
-        naver_id_login.setDomain("YOUR_SERVICE_URL");
-        naver_id_login.setState(state);
-        naver_id_login.setPopup();
-        naver_id_login.init_naver_id_login();
-    </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/naverLoginTest_style.css">
+</head>
+<body>
+	<form class="infoForm" method="post">
+    	<div class="infoContainer">
+    		<div class="infoBox">
+    			<div class="infoBox_inner">
+	    			<div class="privacyBox">
+	    				<input type="text" class="id" id="id" autocomplete="none"><br>
+	    				<input type="password" class="pwd" id="pwd">
+	    			</div>
+	    			<div class="buttonBox">
+	    				<input type="submit" class="submit" id="submit" value="로그인">
+	    			</div>
+	    			</div>
+    			<div class="rememberIdBox">
+    			<input type="checkbox" class="checkbox"> 아이디 저장
+    		</div>
+    		</div>
+    		
+    		<div class="socialBox">
+    			<ul>
+    				<li>
+    					<a href="#" class="goNaver">네이버 로그인</a>
+    				</li>
+    			
+    			</ul>
+    		</div>
+    		
+    	</div>
+    </form>
 </body>
 </html>

@@ -11,5 +11,11 @@ public class NaverLoginController {
 		
 		return "/naverLogin/naverLoginTest";
 	}
+	
+	@GetMapping("homepage")
+	public String homepage() {
+		
+		return "/naverLogin/homepage";
+	}
 
 }

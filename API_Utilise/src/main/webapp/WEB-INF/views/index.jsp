@@ -61,7 +61,7 @@
 				</li>				
 				<li>
 					<span><h3>11. 네이버 로그인 API 활용 테스트 </h3></span>
-					<span class="mileSpan">-> <a href="naverLogin">네이버 로그인 API 활용 테스트 바로가기</a></span>
+					<span class="mileSpan">-> <a href="homepage">네이버 로그인 API 활용 테스트 바로가기</a></span>
 				</li>
 			</ul>
 		
