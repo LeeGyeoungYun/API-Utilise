@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +27,10 @@
     		<div class="socialBox">
     			<ul>
     				<li>
-    					<a href="#" class="goNaver">네이버 로그인</a>
+    					<a href="${apiURL}" class="goNaver">네이버 로그인</a>
+    				</li>
+    				<li>
+    					<a href="naverLogin/go" class="goNaver">네이버 테스트 로그인</a>
     				</li>
     			
     			</ul>
