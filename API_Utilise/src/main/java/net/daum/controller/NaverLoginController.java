@@ -23,7 +23,7 @@ public class NaverLoginController {
 	public String naverLogin(HttpSession session,Model model) throws Exception {
 		
 		 String clientId = "{아이디}";//애플리케이션 클라이언트 아이디값";
-		 String redirectURI = URLEncoder.encode("http://localhost:8080/naverLogin/go", "UTF-8");
+		 String redirectURI = URLEncoder.encode("http://localhost:8080/API_Utilise/naverLogin/go", "UTF-8");
 		 SecureRandom random = new SecureRandom();
 		 String state = new BigInteger(130, random).toString();
 		 String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
@@ -43,13 +43,13 @@ public class NaverLoginController {
 	}
 	
 	@GetMapping("/naverLogin/go")
-	public String naverLogin_callback(HttpServletRequest request,HttpSession session) throws Exception {
-		System.out.println("hi");
+	public String naverLogin_callback(HttpServletRequest request,HttpSession session,Model model) throws Exception {
+		
 		String clientId = "{아이디}";//애플리케이션 클라이언트 아이디값";
 	    String clientSecret = "{패스워드}";//애플리케이션 클라이언트 시크릿값";
 	    String code = request.getParameter("code");
 	    String state = request.getParameter("state");
-	    String redirectURI = URLEncoder.encode("http://localhost:8080/naverLogin/go", "UTF-8");
+	    String redirectURI = URLEncoder.encode("http://localhost:8080/API_Utilise/naverLogin/go", "UTF-8");
 	    String apiURL = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code"
 	        + "&client_id=" + clientId
 	        + "&client_secret=" + clientSecret
@@ -77,11 +77,16 @@ public class NaverLoginController {
 	      br.close();
 	      if (responseCode == 200) {
 	        System.out.println(res.toString());
+	        String token = res.toString().split(",")[0].split(":")[1];
+	        token = token.substring(1,token.length()-1);
+	        
+	        model.addAttribute("token",token);
 	      }
 	    } catch (Exception e) {
 	      // Exception 로깅
 	    }
 		
+	   
 		return "/naverLogin/naverLogin_callback";
 	}
 
