@@ -46,7 +46,7 @@ public class NaverLoginController {
 	public String naverLogin_callback(HttpServletRequest request,HttpSession session,Model model) throws Exception {
 		
 		String clientId = "{아이디}";//애플리케이션 클라이언트 아이디값";
-	    String clientSecret = "{패스워드}";//애플리케이션 클라이언트 시크릿값";
+	    String clientSecret = "{비밀번호}";//애플리케이션 클라이언트 시크릿값";
 	    String code = request.getParameter("code");
 	    String state = request.getParameter("state");
 	    String redirectURI = URLEncoder.encode("http://localhost:8080/API_Utilise/naverLogin/go", "UTF-8");
@@ -75,18 +75,24 @@ public class NaverLoginController {
 	        res.append(inputLine);
 	      }
 	      br.close();
+	      	  
 	      if (responseCode == 200) {
-	        System.out.println(res.toString());
+	        //System.out.println(res.toString());
 	        String token = res.toString().split(",")[0].split(":")[1];
+	        String refresh = res.toString().split(",")[1].split(":")[1];
 	        token = token.substring(1,token.length()-1);
+	        refresh = refresh.substring(1,refresh.length()-1);
 	        
 	        model.addAttribute("token",token);
+	        model.addAttribute("refresh",refresh);
+	        
+	        System.out.println("token값은 ->      "+token);
+	        System.out.println("refresh값은 ->      "+refresh);
 	      }
 	    } catch (Exception e) {
 	      // Exception 로깅
 	    }
 		
-	   
 		return "/naverLogin/naverLogin_callback";
 	}
 

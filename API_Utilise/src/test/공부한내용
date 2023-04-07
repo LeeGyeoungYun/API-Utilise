@@ -48,6 +48,37 @@
    		}
    </script>
  	
+ 
  	
- 	
+2. 네이버 아이디로 로그인
+
+-> 네이버 아이디로 로그인(이하 네아로) API를 제작하는 과정중, API를 사용할 수 있게 신청한 아이디 이외에 다른 아이디로 로그인을 하려했을때 
+   "입력하신 아이디로 로그인할 수 없습니다. 현재 LoginAPI은 개발 중 상태입니다. 개발 중 상태에서는 등록된 아이디만 로그인할 수 있습니다." 라는 
+       오류가 발생하였습니다. 즉, 내가 웹사이트를 개발하여 네아로API를 적용시켰을때 다른 클라이언트들이 사용을 못하는 상황이 발생될 수 있다 느꼈습니다.
+       이러한 문제의 원인은 네아로의 운영원칙에 있었습니다.
+   "네이버는 등록되지 않은 임의의 앱(사이트)에서 네이버 아이디로 로그인을 제공하는 것을 제한하고 있습니다" 라는 운영원칙에 의해 내가 만든 웹사이트를 검수 후
+       통과가 될 경우에 내 아이디 뿐만아니라 다른 아이디로 로그인을 할 수 있습니다.
+       
+
+
+3. @RestController에서 리다이렉트 시키는법
+
+-> @Controller에서 리다이렉트를 시키는법은 return 부분에 그냥 뷰페이지 이름대신 "redirect:뷰페이지위치" 이렇게 한다.
+      하지만 Controller와 다르게 RestController는 뷰페이지를 반환 시키는것이 아닌 데이터를 반환시키고자하는 컨트롤러이므로 똑같이 한다면 페이지대신
+   "redirect:뷰페이지위치"만이 출력이된다. 따라서 다음과 같이 해야 리다이렉트가 가능하다.
+   
+   ex) @GetMapping("/rediect")
+       public ResponseEntity<?> howToRedirect(){
+       	
+       	HttpHeaders headers = new HttpHeaders();
+       	headers.setLocation(URI.create("이동하고자 할 뷰페이지"));
+       	
+       	return new ResponseEntity(headers, HttpStatus.MOVED_PERMANENTLY);
+       }
+       
+       
+   
+4.        
+       
+
  	

@@ -10,6 +10,7 @@
 <body>
 
 	<div class="callbackContainer">
+		<div class="callbackInner">
 		<div class="myInfoBox">
 			<a href="getMyInfo/${token}" class="getMyInfo">
 				<span class="myInfo">
@@ -17,6 +18,15 @@
 					<p>회원정보</p>
 				</span>
 			</a>
+		</div>
+		</div>
+		<div class="tmpBox">
+			<ul>
+				<li>				
+					<a href="deleteToken/${token}">1. 접근토큰 삭제</a>
+				</li>
+				
+			</ul>
 		</div>
 	</div>
 </body>
