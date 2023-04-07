@@ -1,13 +1,11 @@
 package net.daum.controller;
 
 import java.io.BufferedReader;
-
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import javax.mail.Session;
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpSession;
 
@@ -36,6 +34,9 @@ public class NaverLoginRestController {
 		con.setRequestProperty("Authorization", tokenName);
 		
 		int responseCode = con.getResponseCode();
+		if(responseCode==200) {
+			System.out.println("접근토큰을 이용해 개인정보 조회성공"); //잘 실행되었는지 확인
+		}
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 		String inputLine;
@@ -79,7 +80,9 @@ public class NaverLoginRestController {
 		HttpsURLConnection con = (HttpsURLConnection) apiURL.openConnection(); //연결
 		
 		int responseCode = con.getResponseCode();
-		System.out.println(responseCode);
+		if(responseCode==200) {
+			System.out.println("접근토큰 삭제성공"); //잘 실행되었는지 확인
+		}
 		
 		headers.setLocation(URI.create("/API_Utilise/naverLogin"));// restcontroller에서 리다이렉트 시키는법
 		
@@ -88,6 +91,47 @@ public class NaverLoginRestController {
 	}
 	
 	
-	
+	@GetMapping("/naverLogin/updateToken/{refresh}")
+	public JSONObject updateToken(@PathVariable("refresh")String refresh) throws Exception{// 접근 토큰 갱신
+		
+		/*
+		 * https://nid.naver.com/oauth2.0/token?grant_type=refresh_token
+		 * &client_id=jyvqXeaVOVmV
+		 * &client_secret=527300A0_COq1_XV33cf
+		 * &refresh_token=c8ceMEJisO4Se7uGCEYKK1p52L93bHXLn
+		 */
+		
+		String requestURL = "https://nid.naver.com/oauth2.0/token?grant_type=refresh_token";
+		String client_id= "{아이디}";
+		String client_secret="{비밀번호}";
+		String refresh_token= refresh;
+		
+		String url = requestURL+
+					"&client_id="+client_id+
+					"&client_secret="+client_secret+
+					"&refresh_token="+refresh_token;
+		
+		URL apiURL = new URL(url);		
+		HttpsURLConnection con = (HttpsURLConnection)apiURL.openConnection(); //해당 url 연결
+				
+		int responseCode = con.getResponseCode();
+		if(responseCode==200) {
+			System.out.println("접근토큰 갱신성공"); //잘 실행되었는지 확인
+		}
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String inputLine;
+		StringBuilder sb = new StringBuilder();
+		
+		while((inputLine = br.readLine())!=null) {
+			sb.append(inputLine);
+		}
+		
+		JSONParser parser = new JSONParser();
+		JSONObject obj = (JSONObject) parser.parse(sb.toString());
+		
+		
+		return obj;
+	}
 
 }

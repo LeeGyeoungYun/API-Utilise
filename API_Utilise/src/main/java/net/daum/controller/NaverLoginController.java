@@ -86,8 +86,8 @@ public class NaverLoginController {
 	        model.addAttribute("token",token);
 	        model.addAttribute("refresh",refresh);
 	        
-	        System.out.println("token값은 ->      "+token);
-	        System.out.println("refresh값은 ->      "+refresh);
+	        //System.out.println("token값은 ->      "+token);
+	        //System.out.println("refresh값은 ->      "+refresh);
 	      }
 	    } catch (Exception e) {
 	      // Exception 로깅

@@ -49,8 +49,16 @@
 
 .tmpBox{
 	width: 90%;
-	height: 100px;
+	height: 150px;
 	border: 1px solid black;
 	margin: -10px auto;
     padding: 10px 20px;
+}
+
+.tmpBox ul li{
+	margin-top: 15px;
+}
+
+.tmpBox a{
+	color:black;
 }

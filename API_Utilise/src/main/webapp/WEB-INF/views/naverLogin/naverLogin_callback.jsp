@@ -25,7 +25,9 @@
 				<li>				
 					<a href="deleteToken/${token}">1. 접근토큰 삭제</a>
 				</li>
-				
+				<li>				
+					<a href="updateToken/${refresh}">2. 접근토큰 갱신</a>
+				</li>
 			</ul>
 		</div>
 	</div>
