@@ -2,7 +2,6 @@ package net.daum.controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -15,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class NaverLoginController {
@@ -33,6 +33,8 @@ public class NaverLoginController {
 		 session.setAttribute("state", state);
 		 model.addAttribute("apiURL",apiURL);
 		System.out.println(apiURL);
+		
+		//model.addAttribute("check","check");
 		return "/naverLogin/naverLoginTest";
 	}
 	
@@ -94,6 +96,14 @@ public class NaverLoginController {
 	    }
 		
 		return "/naverLogin/naverLogin_callback";
+	}
+	
+	
+	@PostMapping("login")
+	public String login() {
+		
+		
+		return "1";
 	}
 
 }

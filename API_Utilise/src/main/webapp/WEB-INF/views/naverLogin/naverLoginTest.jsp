@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/naverLoginTest_style.css">
 </head>
 <body>
-	<form class="infoForm" method="post">
+	<form class="infoForm" method="post" action="login" onsubmit="return loginCheck();">
     	<div class="infoContainer">
     		<div class="infoBox">
     			<div class="infoBox_inner">
@@ -20,7 +20,7 @@
 	    			</div>
 	    			</div>
     			<div class="rememberIdBox">
-    			<input type="checkbox" class="checkbox"> 아이디 저장
+    			<input type="checkbox" class="checkbox" ${check}> 아이디 저장
     		</div>
     		</div>
     		
@@ -38,5 +38,7 @@
     		
     	</div>
     </form>
+    
+    <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
 </body>
 </html>
