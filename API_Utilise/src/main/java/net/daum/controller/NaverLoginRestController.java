@@ -50,6 +50,10 @@ public class NaverLoginRestController {
 		JSONParser parser = new JSONParser();
 		JSONObject info = (JSONObject)parser.parse(sb.toString());
 		
+		JSONObject infoProfile = (JSONObject)info.get("response");// 가져온 정보값안에 response 객체 가져오기
+		String nickname = (String)infoProfile.get("nickname");
+		System.out.println(nickname);
+		
 		return info;
 	}
 	

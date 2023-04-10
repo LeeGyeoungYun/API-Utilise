@@ -8,6 +8,18 @@ function loginCheck(){
 																			 //없으면 false
 	console.log(id+"  "+pwd+"  "+rememberId);
 	
-	return false;
+	$.ajax({
+		
+		url:"naverLogin/logincheck",
+		type:"post",
+		data:{"id":id,"pwd":pwd,"rememberId":rememberId},
+		dataType:"JSON",
+		success:function(data){
+			console.log("성공");
+		},error:function(){
+			console.log("실패");
+		}
+		
+	});
 	
 }
