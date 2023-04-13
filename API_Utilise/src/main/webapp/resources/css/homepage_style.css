@@ -27,10 +27,22 @@
 	line-height: 80px;
 }
 
-.loginBox a{
+.normalLoginBox{
+	width:30%;
+	height: 80px;
+	font-size: 25px;
+	padding:10px;
+	position: absolute;
+	top:50px;
+	right: 10px;
+	text-align: center;
+	line-height: 80px;
+}
+
+.loginBox a ,.normalLoginBox a{
 	color:black;	
 }
 
-.loginBox a:hover{
+.loginBox a:hover,,.normalLoginBox a:hover{
 	color:#81cc02;
 }

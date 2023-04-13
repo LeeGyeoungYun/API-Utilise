@@ -29,3 +29,6 @@ create sequence users_seq
 increment by 1
 start with 1
 nocache;
+
+
+insert into users( id, username, password,email, nickname,phone, create_date) values (users_seq.nextval, 'a','a','a','a','1',sysdate)

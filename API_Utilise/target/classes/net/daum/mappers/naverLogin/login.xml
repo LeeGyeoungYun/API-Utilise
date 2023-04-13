@@ -17,7 +17,7 @@
     where username = #{username}
   </select>
   
-  <insert id="insertNormalUser" parameterType="User">
+  <insert id="insertNormalUser" parameterType="u">
     insert into  users( id, username, password, email, nickname, phone, create_date )
       values  ( users_seq.nextval, #{username}, #{password},#{email}, #{nickname}, #{phone}, sysdate)   
   </insert>

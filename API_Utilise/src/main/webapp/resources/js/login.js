@@ -10,7 +10,7 @@ function loginCheck(){
 	
 	$.ajax({
 		
-		url:"naverLogin/logincheck",
+		url:"/API_Utilise/naverLogin/logincheck",
 		type:"post",
 		data:{"id":id,"pwd":pwd,"rememberId":rememberId},
 		dataType:"JSON",

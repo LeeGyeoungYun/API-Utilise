@@ -9,7 +9,12 @@
 <body>
 	<div class="mainController">
     	<div class="loginBox">
-    		<a href="naverLogin">로그인</a> |
+    		<a href="naverLogin">네이버 로그인</a> |
+    		<a href="#">회원가입</a>
+    	</div>
+    	
+    	<div class="normalLoginBox">
+    		<a href="login">로그인</a> |
     		<a href="#">회원가입</a>
     	</div>
     </div>
