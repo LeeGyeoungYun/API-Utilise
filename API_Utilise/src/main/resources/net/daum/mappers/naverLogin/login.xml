@@ -22,5 +22,10 @@
       values  ( users_seq.nextval, #{username}, #{password},#{email}, #{nickname}, #{phone}, sysdate)   
   </insert>
   
+  <!-- 계정 체크 -->
+  <select id="loginCheck" resultType="int" parameterType="u">
+  	select count(*) from users where username=#{username} and password=#{password}
+  </select>
+  
 </mapper>
 

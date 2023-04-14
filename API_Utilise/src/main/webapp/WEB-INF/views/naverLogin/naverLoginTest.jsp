@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/naverLoginTest_style.css">
 </head>
 <body>
-	<form class="infoForm" method="post"  onsubmit="return loginCheck();">
+	<form class="infoForm" method="post" > <!-- onsubmit="return loginCheck();" -->
     	<div class="infoContainer">
     		<div class="infoBox">
     			<div class="infoBox_inner">

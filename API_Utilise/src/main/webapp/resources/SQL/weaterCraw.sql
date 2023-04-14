@@ -23,3 +23,5 @@ drop table WEATHERCRAW;
 drop sequence wc_seq;
 
 select count(*) from weatherCraw where wc_region = '부천' and wc_date = '3.03.';
+
+select * from weatherCraw

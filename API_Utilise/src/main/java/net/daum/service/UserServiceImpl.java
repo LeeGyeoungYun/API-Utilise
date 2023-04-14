@@ -28,4 +28,11 @@ public class UserServiceImpl implements UserService {
 		this.userDao.insertNormalUser(u);
 	}
 
+	@Override
+	public int loginCheck(UserVO u) {		
+		return this.userDao.loginCheck(u);
+	}
+	
+	
+
 }

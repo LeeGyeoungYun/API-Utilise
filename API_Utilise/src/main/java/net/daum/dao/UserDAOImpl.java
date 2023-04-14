@@ -26,6 +26,11 @@ public class UserDAOImpl implements UserDAO {
 	public void insertNormalUser(UserVO u) {
 		this.sqlSession.insert("insertNormalUser",u);	
 	}
+
+	@Override
+	public int loginCheck(UserVO u) {		
+		return this.sqlSession.selectOne("loginCheck",u);
+	}
 	
 	
 	

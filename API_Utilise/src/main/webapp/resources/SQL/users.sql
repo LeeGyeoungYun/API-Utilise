@@ -3,7 +3,7 @@
 create table users(
 	id number primary key,
 	username varchar2(40) null,
-	password varchar2(50) null,
+	password varchar2(50) not null,
 	email varchar2(100) null,
 	nickname varchar2(50) null,
 	phone varchar2(30) null,
@@ -20,6 +20,11 @@ create table sns_info(
 	sns_profile varchar2(255) null,
 	sns_connect_date date null
 );
+
+select * from users;
+drop table users;
+alter table users modify password not null;
+select count(*) from users where username='a' and password='a'
 
 --제약조건 설정 참조키 설정
 alter table sns_info add constraint FK_SNS_INFO_ID foreign key(id) references users(id); 
