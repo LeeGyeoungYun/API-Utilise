@@ -84,7 +84,54 @@
 	읽어들이는 와중에 에러가 났다.
 	
 	
-5. 
+5. HttpSessionListener를 사용하는 방법 :
+
+-> 먼저 HttpSessionListener란? 요청이들어오면 응답만해주고 사라지는 HttpSession과 달리 세션이 생성될때 
+      이벤트처리와 사라질때(로그아웃해서 사라지거나 브라우저를 닫았을때) 이벤트처리를 할 수 있어 세심하게 컨트롤 할 수 있습니다.
+      따라서 중복로그인처리와 방문자정보를 저장하거나, 방문자수를 조회하는등 다양한 처리가 가능합니다.
+      
+   HttpSessionListener를 사용하는 방법에는 2가지가있습니다. 우선, 첫번째 방법이나 두번째 방법을 사용하기전, 
+   HttpSessionLisetener인터페이스를 사용할 수 있는 라이브러리를 다운받아야합니다. pom.xml파일에  Servlet 3.0버전 이상인 경우로 업그레이드를 
+      시켜줘야만 해당 인터페이스를 사용가능합니다. 만약 업그레이드가 되어있지않거나 포함이 되지 않았다면
+      
+   		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	다음과 같이 디펜던시를 추가하거나 수정하면됩니다. 그리고 나서 메이븐 업데이트를 하면 javax.servlet.api-3.1.0.jar 파일이 생깁니다.
+	javax.servlet.http 패키지안에 HttpSessionListener이라는 인터페이스가 생겼다면 다음 2가지 방법중 하나를 이용하여 사용할 수 있습니다.
+   
+5-1)  어노테이션을 활용한 방법
+
+      어노테이션이란 @를 이용하는 방법입니다. 예를들어 @GetMapping, @Controller, @Autowired 등이 있습니다.
+      이처럼 어노테이션을 활용해 사용하고자하는 HttpSessionListener를 사용하고 하는 java파일에 명시를 해주면됩니다.
+      예를들어, 필자는 컨트롤러 패키지안에 SessionHandler.java 파일에 HttpSessionListener를 사용하고 하면, 
+      해당 자바파일에 @WebListener를 선언해주면 됩니다.
+      
+      -> ex)	@WebListener
+      			public class SessionHandler implements HttpSessionListener{
+      				//여기안에는 HttpSessionListener을 오버라이딩받아 재선언해주면됩니다.
+      			}
+      			
+5-2)  web.xml에 명시해주는방법
+
+	두번째 방법으론 web.xml에 명시하는 방법이 있습니다. 내가 HttpSessionListener를 사용하고자하는 파일을 web.xml에 명시하면됩니다.
+	하는 방법은 다음과 같습니다. 컨트롤러 패키지안에 SessionHandler.java 파일에 HttpSessionListener를 사용하고 한다면,
+	
+	<listener>
+		<listener-class>패키지명.파일명</listener-class>   // 해당필자의 패키지명은 net.daum.controller이고 파일명은 SessionHandler입니다.
+	</listener>
+	
+	즉, ( 패키지명.파일명 ) 자리에 net.daum.controller.SessionHandler 라고 작성해주면 해당파일에 HttpSessionListener를 연결해 줄 수 있습니다.
+
+
+
+6.  
+   
+
        
 
  	
