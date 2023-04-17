@@ -43,7 +43,10 @@ public class NaverLoginController {
 	}
 	
 	@GetMapping("homepage")
-	public String homepage() {
+	public String homepage(Model model,HttpServletRequest request) {
+		
+		String id = (String)request.getSession().getAttribute("username");
+		model.addAttribute("username",id);
 		
 		return "/naverLogin/homepage";
 	}

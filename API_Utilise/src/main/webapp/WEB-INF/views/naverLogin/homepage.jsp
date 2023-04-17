@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<% String id = (String)request.getSession().getAttribute("username"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +11,10 @@
 	<div class="mainController">
 	
 		<div class="loginState">
-			<p>환영합니다. <%=id%> 님</p>
-			<a href="${pageContext.request.contextPath}/logout" style="margin-top:10px;">로그아웃하기</a>
+			<p>환영합니다. ${username} 님</p>
+			<c:if test="${username != null}">
+				<a href="${pageContext.request.contextPath}/logout" style="margin-top:10px;">로그아웃하기</a>
+			</c:if>
 		</div>
     	<div class="loginBox">
     		<a href="naverLogin">네이버 로그인</a> |

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Visitor">
+	
+	<!-- 방문자 로그인 세션 정보 저장 -->
+	<insert id="saveVisitInfo" parameterType="v">
+		insert into visitor 
+		(id, visit_ip, visit_time, 
+		<if test="visit_refer != null and visit_refer !=''">
+		visit_refer,
+		</if>
+		visit_browser) 
+		values 
+		(visitor_seq.nextval, #{visit_ip}, sysdate, 
+		<if test="visit_refer != null and visit_refer !=''">
+		#{visit_refer},
+		</if>
+		#{visit_browser})
+	</insert>
+	
+	
+</mapper>

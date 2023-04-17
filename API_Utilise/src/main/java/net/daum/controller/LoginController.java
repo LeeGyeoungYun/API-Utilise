@@ -4,6 +4,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,8 @@ public class LoginController {
 		
 		String username = "";
 		Cookie[] cookies = request.getCookies(); 
+		if(cookies.length!=0) {
+		
 		for(Cookie c : cookies) {
 			System.out.println(c.getName()+" : "+c.getValue());
 			if(c.getName().equals("username")) {
@@ -36,6 +39,8 @@ public class LoginController {
 			model.addAttribute("check","checked");
 		}
 		model.addAttribute("username",username);
+		}
+		
 		return "/naverLogin/loginTest";	
 	}
 	
@@ -61,6 +66,7 @@ public class LoginController {
 			
 			HttpSession session = request.getSession();//세션 생성 만약 세션이 존재한다면 그값을 가져오고 없다면 새로운 세션생성
 			session.setAttribute("username", username);
+			
 			
 			Cookie cookie = new Cookie("username", username);
 			
