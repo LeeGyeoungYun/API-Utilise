@@ -37,3 +37,4 @@ nocache;
 
 
 insert into users( id, username, password,email, nickname,phone, create_date) values (users_seq.nextval, 'a','a','a','a','1',sysdate)
+insert into users( id, username, password,email, nickname,phone, create_date) values (users_seq.nextval, 'b','b','b','b','1',sysdate)

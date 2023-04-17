@@ -66,6 +66,7 @@ public class LoginController {
 			
 			HttpSession session = request.getSession();//세션 생성 만약 세션이 존재한다면 그값을 가져오고 없다면 새로운 세션생성
 			session.setAttribute("username", username);
+			session.setMaxInactiveInterval(30);
 			
 			
 			Cookie cookie = new Cookie("username", username);
@@ -91,9 +92,11 @@ public class LoginController {
 	}//login_ok end
 	
 	@GetMapping("logout")
-	public String logout(HttpServletRequest request) {
+	public String logout(HttpServletRequest request,HttpSession session) {
 		
 		System.out.println("로그아웃됌");
+		System.out.println(session);
+		session.removeAttribute("username");
 		request.getSession().invalidate();//세션 삭제
 		
 		return "redirect:/homepage";

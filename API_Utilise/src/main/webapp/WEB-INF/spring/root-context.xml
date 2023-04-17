@@ -57,5 +57,8 @@
     
     <!-- aop 설정-> AOP를 XML 방식으로 설정할 때 사용 -->
     <aop:config></aop:config>
+    
+    
+    <bean id="visitorService" class="net.daum.service.VisitorServiceImpl"></bean>
 		
 </beans>

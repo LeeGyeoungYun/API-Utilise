@@ -11,7 +11,7 @@ start with 1
 increment by 1
 nocache;
 
-select * from VISITOR;
+select * from VISITOR order by id desc;
 drop table visitor;
 
 
