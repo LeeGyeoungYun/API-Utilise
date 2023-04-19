@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,11 @@
     	<div class="normalLoginBox">
     		<a href="login">로그인</a> |
     		<a href="#">회원가입</a>
+    	</div>
+    	
+    	
+    	<div class="countBox">
+    		${count}
     	</div>
     </div>
 </body>

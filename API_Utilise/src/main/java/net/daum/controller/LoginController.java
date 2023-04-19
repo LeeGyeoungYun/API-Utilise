@@ -66,7 +66,6 @@ public class LoginController {
 			
 			HttpSession session = request.getSession();//세션 생성 만약 세션이 존재한다면 그값을 가져오고 없다면 새로운 세션생성
 			session.setAttribute("username", username);
-			session.setMaxInactiveInterval(30);
 			
 			
 			Cookie cookie = new Cookie("username", username);
@@ -77,13 +76,13 @@ public class LoginController {
 				//cookie.setPath("/API_Utilise/login");				
 				res.addCookie(cookie);
 				
-				System.out.println("쿠키생성");
+				//System.out.println("쿠키생성");
 				
 			}else {//체크가 안되어있다면 모든 쿠키삭제
 				
 				cookie.setMaxAge(0);					
 				res.addCookie(cookie);
-				System.out.println("쿠키삭제");
+				//System.out.println("쿠키삭제");
 			}
 			
 			return "redirect:/homepage";
@@ -96,8 +95,13 @@ public class LoginController {
 		
 		System.out.println("로그아웃됌");
 		System.out.println(session);
-		session.removeAttribute("username");
-		request.getSession().invalidate();//세션 삭제
+		session = request.getSession(false);
+		
+		if(session!=null) {//기존에 있는 세션이 있다면?
+			session.removeAttribute("username");
+			request.getSession().invalidate();//세션 삭제
+		}
+		
 		
 		return "redirect:/homepage";
 	}
